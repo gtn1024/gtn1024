@@ -7,7 +7,7 @@ I am from Huai'an, Jiangsu Province, China.
 Here is my details below:
 
 - 🔭 I’m currently working on **Gaokao** (*College Entrance Examination*)
-- 🌱 I’m currently learning **Java** and **Kotlin**
+- 🌱 I’m currently learning **Kotlin** and **Java**
 - 🔗 My blog is [https://getaoning.com](https://getaoning.com) (Chinese)
 - 📫 How to reach me: 
   - Telegram: [@gtn1024](https://t.me/gtn1024)
