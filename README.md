@@ -1,16 +1,15 @@
 ### Hi there 👋
 
-<!--
-**gtn1024/gtn1024** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+My name is Taoning Ge
 
-Here are some ideas to get you started:
+I am from Huai'an, Jiangsu Province, China.
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+Here is my details below:
+
+- 🔭 I’m currently working on **Gaokao** (*College Entrance Examination*)
+- 🌱 I’m currently learning **Java** and **Kotlin**
+- 🔗 My blog is [https://getaoning.com](https://getaoning.com)
+- 📫 How to reach me: 
+  - Telegram: [@gtn1024](https://t.me/gtn1024)
+
+![](https://github-readme-stats.vercel.app/api?username=gtn1024&show_icons=true)
