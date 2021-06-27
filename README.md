@@ -7,7 +7,7 @@ I am from Huai'an, Jiangsu Province, China.
 Here is my details below:
 
 - 🔭 ~~I’m currently working on **Gaokao** (*National College Entrance Examination*)~~
-- 🍙 I'm currently using **EPL**(易语言, a Chinese programing language)
+- 🍙 ~~I'm currently using **EPL**(易语言, a Chinese programing language)~~
 - 🌱 I’m currently learning **Java** and **FrontEnd**
 - 🔗 My blog is [https://getaoning.com](https://getaoning.com) (Chinese)
 - 📫 How to reach me: 
