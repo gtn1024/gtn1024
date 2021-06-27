@@ -12,6 +12,7 @@ Here is my details below:
 - 🔗 My blog is [https://getaoning.com](https://getaoning.com) (Chinese)
 - 📫 How to reach me: 
   - Zhihu: [巴掌大叔](https://www.zhihu.com/people/gtn1024)
+  - Juejin: [巴掌大叔](https://juejin.cn/user/747323640003469)
   - Email: [gtn1024cc@gmail.com](mailto:gtn1024cc@gmail.com)
   - Telegram: [@gtn1024](https://t.me/gtn1024)
   - Twitter: [@gtn1024](https://twitter.com/gtn1024)
