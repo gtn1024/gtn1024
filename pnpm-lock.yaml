@@ -5,11 +5,26 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@unocss/reset':
+    specifier: ^0.56.5
+    version: 0.56.5
   vue:
     specifier: ^3.3.4
     version: 3.3.4
 
 devDependencies:
+  '@iconify-json/bxs':
+    specifier: ^1.1.7
+    version: 1.1.7
+  '@iconify-json/icon-park':
+    specifier: ^1.1.12
+    version: 1.1.12
+  '@iconify-json/material-symbols':
+    specifier: ^1.1.59
+    version: 1.1.59
+  '@iconify-json/mdi':
+    specifier: ^1.1.54
+    version: 1.1.54
   '@vitejs/plugin-vue':
     specifier: ^4.3.4
     version: 4.3.4(vite@4.4.9)(vue@3.3.4)
@@ -330,6 +345,30 @@ packages:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
 
+  /@iconify-json/bxs@1.1.7:
+    resolution: {integrity: sha512-oZlJtaJYnPYVF9MZyz9NQ80tLx23AE2Cni+Fxj+qv3THNewAaHob5Q64Auslxm3+fTDZxdz6mwxT6z+/jeOC4g==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
+  /@iconify-json/icon-park@1.1.12:
+    resolution: {integrity: sha512-W1m7E+xT1HklJQyp+vOca4qEruIwlBS0d48pZ4HXdcIZZI4HAjy12GjPL4xJPJ/VI7fdcy1FIfXhIh/ayAlvbQ==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
+  /@iconify-json/material-symbols@1.1.59:
+    resolution: {integrity: sha512-azzJVyS2AKQ4cxIUUmeMHaTVlU9aWM6M98NEqf8luZ1RJpVWuDdSjExY+x58Y39wPFTf+6hgvS4pRwCJRdpohw==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
+  /@iconify-json/mdi@1.1.54:
+    resolution: {integrity: sha512-3QAsxte90EalbN2e8J30OqSSZz9qN2x+kmykQwsPahoW2dOtSvj+BR9YdiUd9A5XKk2nuU4UH5Gj/cq6WZ6CzQ==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
   /@iconify/types@2.0.0:
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
     dev: true
@@ -562,6 +601,10 @@ packages:
   /@unocss/reset@0.56.4:
     resolution: {integrity: sha512-7o3Jpog49ORWW+Rpz7bzYY+CStfLMyBXAeDOzhM2PQjftuQl4ZQOvIdXi6zrXDEN2SJQsi279s2t50ERZN8YcA==}
     dev: true
+
+  /@unocss/reset@0.56.5:
+    resolution: {integrity: sha512-//Pv2ITAdnpWB9FIr0JiQVl1rL1XgISR8mu3OikhCfi6d/4OH+o6/WyE7evF1pOmk1JjsQlznOABIZXQlcpbHQ==}
+    dev: false
 
   /@unocss/rule-utils@0.56.4:
     resolution: {integrity: sha512-pZmTPqi/Tb+vbwjNXu9+PwxEh7PVe+FwP+pzUbfNSUpE5Hg9CCbl8hpsXRE/r8kdaoKhmw2ryxvjocOgKXG/ag==}
