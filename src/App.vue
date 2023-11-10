@@ -12,16 +12,19 @@
           <h1 text-8 leading-14>
             gtn1024
           </h1>
-          <!-- <p>
-            啥都不会
-          </p> -->
+          <p>
+            啥都不会...
+          </p>
         </div>
       </div>
       <div p-4>
         <h2 text-6 pb-2>个人简介</h2>
         <p>
-          待会再来补一些简介~
+          博客：<a href="https://blog.gtn1024.me" target="_blank">https://blog.gtn1024.me</a>
         </p>
+        <br />
+        <img src="https://github-readme-stats.vercel.app/api?username=gtn1024&show_icons=true"
+          alt="gtn1024's github stats" title="gtn1024's github stats" />
       </div>
     </div>
     <div w="1/4" bg="#fff">
