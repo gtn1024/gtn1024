@@ -11,6 +11,9 @@
         <li>
           <a href="https://github.com/gtn1024" target="_blank" w-64px block text-center border-b="1px solid #555">GitHub</a>
         </li>
+        <li>
+          <a href="mailto:i@gtn1024.me" target="_blank" w-48px block text-center border-b="1px solid #555">Email</a>
+        </li>
       </ol>
     </div>
   </div>
