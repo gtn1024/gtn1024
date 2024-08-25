@@ -10,7 +10,7 @@ function App() {
           </div>
           <div className="flex justify-between">
             <Button variant="link" asChild>
-              <a href="mailto:i@gtn1024.me">Contact</a>
+              <a href="mailto:gtn1024@foxmail.com">Contact</a>
             </Button>
             <Button variant="link" asChild>
               <a href="https://github.com/gtn1024">GitHub</a>
