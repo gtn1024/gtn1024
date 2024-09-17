@@ -11,12 +11,12 @@
 <tr>
 <td>
 
-[![GitHub stats](https://github-readme-stats.vercel.app/api?username=gtn1024&show_icons=true&include_all_commits=true&theme=buefy&hide_border=true)](https://github.com/gtn1024)
+![GitHub stats](https://github-readme-stats.vercel.app/api?username=gtn1024&show_icons=true&include_all_commits=true&theme=buefy&hide_border=true)
 
 </td>
 <td>
 
-[![GitHub stats](https://github-readme-stats.vercel.app/api/top-langs/?username=gtn1024&layout=compact&theme=buefy&hide_border=true)](https://github.com/gtn1024)
+![GitHub stats](https://github-readme-stats.vercel.app/api/top-langs/?username=gtn1024&layout=compact&theme=buefy&hide_border=true)
 
 </td>
 </tr>
