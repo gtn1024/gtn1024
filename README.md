@@ -4,7 +4,6 @@
 
 - Email: <a href="mailto:gtn1024@foxmail.com" target="_blank">Send Email</a>
 - Homepage: <https://gtn1024.me>
-- Resume：[要不来看一下?~](https://github.com/gtn1024/resume/blob/master/resume.pdf)
 
 <table>
 <tbody>
