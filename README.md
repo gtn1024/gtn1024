@@ -21,10 +21,3 @@
 </tr>
 </tbody>
 </table>
-
-**我使用的语言：**
-
-![Java](https://img.shields.io/badge/Java-000000?style=flat-square&logo=openjdk&logoColor=white)
-![Kotlin](https://img.shields.io/badge/Kotlin-000000?style=flat-square&logo=kotlin&logoColor=white)
-![Nodejs](https://img.shields.io/badge/Nodejs-000000?style=flat-square&logo=nodedotjs&logoColor=white)
-![Cangjie](https://img.shields.io/badge/Cangjie-000000?style=flat-square&logo=cangjie&logoColor=white)
