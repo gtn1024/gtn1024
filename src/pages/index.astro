@@ -10,10 +10,9 @@ const recentPosts = allPosts.slice(0, 6)
 ---
 
 <BaseLayout title="Taoning Ge">
-  <div class="mx-auto max-w-3xl px-6 py-16">
-    <!-- Hero -->
-    <section class="fade-in-up mb-16">
-      <div class="flex items-center gap-5">
+  <div class="flex min-h-[calc(100vh-10rem)] items-center justify-center px-6">
+    <div class="w-full max-w-xl">
+      <header class="fade-in-up flex items-center gap-5" style="animation-delay: 80ms">
         <img
           src="https://github.com/gtn1024.png"
           alt="Taoning Ge"
@@ -25,51 +24,8 @@ const recentPosts = allPosts.slice(0, 6)
           </h1>
           <p class="mt-1 text-stone-500 dark:text-stone-400" id="tagline"></p>
         </div>
-      </div>
-
-      <div class="mt-8 flex flex-wrap gap-2">
-        <a href="https://github.com/gtn1024" target="_blank" rel="noopener noreferrer"
-          class="inline-flex items-center rounded-full border border-stone-200 px-3.5 py-1.5 text-sm font-medium text-stone-600 transition-colors hover:border-stone-400 hover:text-stone-900 dark:border-stone-800 dark:text-stone-300 dark:hover:border-stone-600 dark:hover:text-white">
-          GitHub
-        </a>
-        <a href="mailto:gtn1024@foxmail.com"
-          class="inline-flex items-center rounded-full border border-stone-200 px-3.5 py-1.5 text-sm font-medium text-stone-600 transition-colors hover:border-stone-400 hover:text-stone-900 dark:border-stone-800 dark:text-stone-300 dark:hover:border-stone-600 dark:hover:text-white">
-          Email
-        </a>
-        <a href="/posts"
-          class="inline-flex items-center rounded-full border border-stone-200 px-3.5 py-1.5 text-sm font-medium text-stone-600 transition-colors hover:border-stone-400 hover:text-stone-900 dark:border-stone-800 dark:text-stone-300 dark:hover:border-stone-600 dark:hover:text-white">
-          Blog
-        </a>
-        <a href="https://github.com/gtn1024/resume/blob/master/resume.pdf" target="_blank" rel="noopener noreferrer"
-          class="inline-flex items-center rounded-full border border-stone-200 px-3.5 py-1.5 text-sm font-medium text-stone-600 transition-colors hover:border-stone-400 hover:text-stone-900 dark:border-stone-800 dark:text-stone-300 dark:hover:border-stone-600 dark:hover:text-white">
-          Resume
-        </a>
-      </div>
-    </section>
-
-    <!-- Recent Posts -->
-    <section>
-      <div class="mb-6 flex items-center justify-between">
-        <h2 class="text-xs font-medium uppercase tracking-widest text-stone-500 dark:text-stone-400">
-          <span class="text-accent-600/70 dark:text-accent-500/50 select-none">$ </span>
-          Recent Posts
-        </h2>
-        <a href="/posts" class="text-xs text-stone-400 transition-colors hover:text-stone-600 dark:hover:text-stone-300">
-          All &rarr;
-        </a>
-      </div>
-      <div class="grid gap-3">
-        {recentPosts.map((post) => (
-          <PostCard
-            title={post.data.title}
-            href={`/posts/${post.id.replace(/\.md$/, '')}`}
-            date={post.data.date}
-            tags={post.data.tags}
-            excerpt={post.data.excerpt}
-          />
-        ))}
-      </div>
-    </section>
+      </header>
+    </div>
   </div>
 
   <script is:inline>
