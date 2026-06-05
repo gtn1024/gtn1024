@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import PostCard from '../../components/PostCard.astro'
+import { getCollection } from 'astro:content'
+
+const allPosts = (await getCollection('posts', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 10)
+---
+
+<BaseLayout title="Posts">
+  <div class="mx-auto max-w-3xl px-6 py-10">
+    <h1 class="fade-in-up mb-8 text-2xl font-bold tracking-tight text-stone-900 dark:text-stone-100">
+      Posts
+    </h1>
+
+    <div class="grid gap-3">
+      {allPosts.map((post) => (
+        <PostCard
+          title={post.data.title}
+          href={`/posts/${post.id.replace(/\.md$/, '')}`}
+          date={post.data.date}
+          tags={post.data.tags}
+          excerpt={post.data.excerpt}
+        />
+      ))}
+    </div>
+
+    <div class="mt-8 text-center">
+      <a href="/posts/2" class="text-sm text-stone-500 transition-colors hover:text-stone-700 dark:text-stone-400 dark:hover:text-stone-200">
+        Older posts &rarr;
+      </a>
+    </div>
+  </div>
+</BaseLayout>
