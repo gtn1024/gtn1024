@@ -16,9 +16,9 @@ tags:
 
 还记得 [CS50 撕书教授 David 撕电话薄的视频](https://www.youtube.com/watch?v=YoXxevp1WRQ)吗？
 
-{% asset_img er-1.png %}
+![er-1.png](/posts/algorithm-basic/er-1.png)
 
-{% asset_img er-2.png %}
+![er-2.png](/posts/algorithm-basic/er-2.png)
 
 在该视频中，David 想要在电话薄中查找自己的姓名。他每次将电话薄从中间撕开，判断其姓名首字母`D`在该页的前面还是后面，丢掉无用的部分。这段视频生动的展示了「**二分查找**(**Binary Search**)」这种算法。
 
@@ -32,7 +32,7 @@ tags:
 
 如上所示的两种查找方式的时间增长趋势如下图：
 
-{% asset_img 顺序二分增长趋势.png %}
+![顺序二分增长趋势.png](/posts/algorithm-basic/顺序二分增长趋势.png)
 
 ## 运行时间
 
@@ -42,11 +42,11 @@ tags:
 
 上面所示的增长趋势用**大_O_表示法**可以为以下图像：
 
-{% asset_img BigO-1.png %}
+![BigO-1.png](/posts/algorithm-basic/BigO-1.png)
 
 为了表示某一算法的增长趋势，通常我们会省略一些**东西**（例如**系数**、**底数**等），故以上图像可以再次优化：
 
-{% asset_img BigO-2.png %}
+![BigO-2.png](/posts/algorithm-basic/BigO-2.png)
 
 下面列举几个常见的**大_O_表示法**的表现形式：
 

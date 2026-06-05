@@ -160,13 +160,13 @@ redis> KEYS *
 
 使用 Redis 相关 GUI 客户端时，能够自动为其分为层级。
 
-{% asset_img 20240714114857.png %}
+![20240714114857.png](/posts/redis-data-type/20240714114857.png)
 
 ## Hash
 
 String 类型可以将对象序列化为 JSON 字符串后存储，当需要修改对象里某一个字段的时候很不方便。
 
-{% asset_img 20240714120350.png %}
+![20240714120350.png](/posts/redis-data-type/20240714120350.png)
 
 常用命令：
 

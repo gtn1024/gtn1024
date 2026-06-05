@@ -12,8 +12,8 @@ tags:
 
 文章目录：
 
-- {% post_link ts-intro %}
-- {% post_link ts-datatype-1 %}
+- [TypeScript 入门](/posts/ts-intro)
+- [TypeScript 数据类型（一）](/posts/ts-datatype-1)
 
 ## TypeScript 是什么
 
@@ -23,7 +23,7 @@ TypeScript 是添加了类型系统的 JavaScript，是 JavaScript 的超集。�
 
 普通的 JavaScript 代码可以在 Chrome、Node 等环境中直接运行，而 TypeScript 无法在无任何其他工具的帮助下直接运行。
 
-{% asset_img 20220825201047.png %}
+![20220825201047.png](/posts/ts-intro/20220825201047.png)
 
 类型擦除指将 TypeScript 代码中与类型相关的东西移除，变为纯真的 JavaScript 代码。通常也可以称它为编译的过程。
 
@@ -50,7 +50,7 @@ console.log(a);
 
 使用 `esbuild 1.ts` 命令编译结果如下：
 
-{% asset_img 20220825202237.png %}
+![20220825202237.png](/posts/ts-intro/20220825202237.png)
 
 可以看到，`esbuild` 将 `number` 移除了。
 
@@ -58,13 +58,13 @@ console.log(a);
 
 `esbuild 1.ts > 1.js`
 
-{% asset_img 20220825202541.png %}
+![20220825202541.png](/posts/ts-intro/20220825202541.png)
 
 ### 使用 `swc` 编译 TS 代码
 
 使用 `npm i -g @swc/cli @swc/core` 安装 swc
 
-{% asset_img 20220825202730.png %}
+![20220825202730.png](/posts/ts-intro/20220825202730.png)
 
 ### 使用 `tsc` 编译 TS 代码
 
@@ -72,7 +72,7 @@ console.log(a);
 
 `npm i -g typescript`
 
-{% asset_img 20220825203026.png %}
+![20220825203026.png](/posts/ts-intro/20220825203026.png)
 
 ### 不检查 TS 语法是什么意思
 
@@ -80,7 +80,7 @@ console.log(a);
 
 例如，我在 `bad.ts` 的文件中将 `number` 写成 `numbe`，`esbuild` 可以正常输出编译结果，而 `tsc` 会报错。
 
-{% asset_img 20220825203337.png %}
+![20220825203337.png](/posts/ts-intro/20220825203337.png)
 
 ## 运行 TypeScript 代码
 
@@ -88,9 +88,9 @@ console.log(a);
 
 TypeScript Playground 是 TypeScript 官方提供的演练场，有大量的配置可以修改。在学习 TypeScript 语法时可以使用该演练场进行代码编写。
 
-{% asset_img 20220825204400.png %}
+![20220825204400.png](/posts/ts-intro/20220825204400.png)
 
-{% asset_img 20220825204341.png %}
+![20220825204341.png](/posts/ts-intro/20220825204341.png)
 
 ### 使用 `ts-node` 执行 TypeScript 代码
 
@@ -100,7 +100,7 @@ TypeScript Playground 是 TypeScript 官方提供的演练场，有大量的配�
 
 安装后就可以使用 `ts-node` 命令直接运行 TS 代码
 
-{% asset_img 20220825205116.png %}
+![20220825205116.png](/posts/ts-intro/20220825205116.png)
 
 ### 使用 `esno` 执行 TypeScript 代码
 
@@ -108,4 +108,4 @@ TypeScript Playground 是 TypeScript 官方提供的演练场，有大量的配�
 
 随后使用 `esno` 运行，效果与 `ts-node` 类似
 
-{% asset_img 20220825205515.png %}
+![20220825205515.png](/posts/ts-intro/20220825205515.png)

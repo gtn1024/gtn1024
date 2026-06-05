@@ -77,7 +77,7 @@ public class ThreadTest {
 
 执行结果如图所示（线程之间交替执行）：
 
-{% asset_img 16362104651004.jpg %}
+![16362104651004.jpg](/posts/java-thread-qs/16362104651004.jpg)
 
 ### 实现 Runnable 接口
 
@@ -212,7 +212,7 @@ public class ThreadTest {
 | **阻塞**(blocked) | 阻塞状态的线程无法继续执行                                                   |
 | **死亡**(dead)    | 线程死亡                                                                     |
 
-{% asset_img thread.drawio.png %}
+![thread.drawio.png](/posts/java-thread-qs/thread.drawio.png)
 
 **注意**：在正常开发过程中，**不要**使用`suspend`、`resume`、`stop`控制线程，否则可能引发**死锁**！
 

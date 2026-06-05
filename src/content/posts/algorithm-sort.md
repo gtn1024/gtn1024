@@ -13,17 +13,17 @@ tags:
 
 例如按照身高排序：
 
-{% asset_img 身高排列.png %}
+![身高排列.png](/posts/algorithm-sort/身高排列.png)
 
 再例如你在购买商品时的顺序：
 
-{% asset_img 16302493019615.jpg %}
+![16302493019615.jpg](/posts/algorithm-sort/16302493019615.jpg)
 
 下面将讲解几个比较常见的排序算法。
 
 注意：在计算机中，对一组数据排序需要一个一个「**看**」里面的数据。就类似一组数据在一个「**箱子**」中，我们必须将箱子打开才能知道里面的数据。
 
-{% asset_img 箱子原则.png %}
+![箱子原则.png](/posts/algorithm-sort/箱子原则.png)
 
 ## 选择排序 (Selection Sort)
 
@@ -39,19 +39,19 @@ tags:
 
 首先给出一组数：
 
-{% asset_img 原始排序.png %}
+![原始排序.png](/posts/algorithm-sort/原始排序.png)
 
 **选择排序**开始，首先算法开始遍历整个数组，从左往右找最小的数，并且将当前找到的最小数记录下来。当遍历到最后一个数字`1`时，将 `1` 和数组中`0`号元素（`6`）交换位置。将1做出标记，表示它已经到达正确的位置，不再进行排序。
 
-{% asset_img 选择排序1.png %}
+![选择排序1.png](/posts/algorithm-sort/选择排序1.png)
 
 后面的元素以类似的方法进行排序。
 
 排序的动画如图所示：
 
-{% asset_img 选择排序.gif %}
+![选择排序.gif](/posts/algorithm-sort/选择排序.gif)
 
-{% asset_img 选择排序2.gif %}
+![选择排序2.gif](/posts/algorithm-sort/选择排序2.gif)
 
 ### 代码实现
 
@@ -101,17 +101,17 @@ public class SelectionSort {
 
 首先给出一组数：
 
-{% asset_img 原始排序.png %}
+![原始排序.png](/posts/algorithm-sort/原始排序.png)
 
 **冒泡排序**开始，首先将 0 号元素和 1 号元素进行比较，如果 0 号元素大于 1 号元素，则将这两个元素位置对调。依此类推。
 
-{% asset_img 冒泡过程.png %}
+![冒泡过程.png](/posts/algorithm-sort/冒泡过程.png)
 
 排序的动画如图所示：
 
-{% asset_img 冒泡排序.gif %}
+![冒泡排序.gif](/posts/algorithm-sort/冒泡排序.gif)
 
-{% asset_img 冒泡排序2.gif %}
+![冒泡排序2.gif](/posts/algorithm-sort/冒泡排序2.gif)
 
 ### 代码实现
 
@@ -150,9 +150,9 @@ public class BubbleSort {
 
 ### 例子
 
-{% asset_img 归并排序.gif %}
+![归并排序.gif](/posts/algorithm-sort/归并排序.gif)
 
-{% asset_img 归并排序2.gif %}
+![归并排序2.gif](/posts/algorithm-sort/归并排序2.gif)
 
 ## **大*O*表示法**性能分析
 

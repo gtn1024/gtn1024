@@ -19,7 +19,7 @@ tags:
 
 在计算机中，内存可以视为一个大数组，数组的元素由一个个字节组成。每一个字节都由一个唯一的数字表示，称为地址。地址的集合称为 **虚拟地址空间**。
 
-{% asset_img vap.png %}
+![vap.png](/posts/csapp-2/vap.png)
 
 ### 字节
 
@@ -71,11 +71,11 @@ tags:
 
 C 语言各个数据类型大小如下表所示：
 
-{% asset_img type.png %}
+![type.png](/posts/csapp-2/type.png)
 
 ### 地址和字节排布
 
-{% asset_img order.png %}
+![order.png](/posts/csapp-2/order.png)
 
 目前，大部分使用的 PC 机使用小端法排布。
 
@@ -87,7 +87,7 @@ C 语言中字符串被定义为以 NULL 结束的字符数组。例如，字符
 const char *s = "abcde";
 ```
 
-{% asset_img string.png %}
+![string.png](/posts/csapp-2/string.png)
 
 NULL 在 C 语言中对应 `0x00`，该字符串在内存中以十六进制表示为：
 

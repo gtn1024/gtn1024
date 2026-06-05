@@ -12,8 +12,8 @@ tags:
 
 文章目录：
 
-- {% post_link ts-intro %}
-- {% post_link ts-datatype-1 %}
+- [TypeScript 入门](/posts/ts-intro)
+- [TypeScript 数据类型（一）](/posts/ts-datatype-1)
 
 ## 数据类型
 

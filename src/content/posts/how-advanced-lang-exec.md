@@ -14,7 +14,7 @@ tags:
 
 **编译型语言**是指使用针对特定平台的**编译器**将**源代码**「翻译」成针对该平台硬件可以执行的**机器码**，并且打包形成成该平台支持执行的可执行文件。
 
-{% asset_img 编译.png %}
+![编译.png](/posts/how-advanced-lang-exec/编译.png)
 
 常见的编译型语言有：**C**、**C++**、**Go**等等。
 
@@ -24,7 +24,7 @@ tags:
 
 举个生活中的例子，假如你在阅读一本英文的书，你可能有如下反应：
 
-{% asset_img 解释型语言.gif %}
+![解释型语言.gif](/posts/how-advanced-lang-exec/解释型语言.gif)
 
 常见的解释型语言有：**JavaScript**、**Python**、**Ruby** 等。
 

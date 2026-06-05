@@ -10,7 +10,7 @@ tags:
 
 
 
-{% asset_img 20240717184945.png %}
+![20240717184945.png](/posts/redis-cache-penetration/20240717184945.png)
 
 主要有如下方法解决：
 
@@ -33,11 +33,11 @@ tags:
 - 额外内存消耗（加入较短的 TTL 缓解）
 - 可能造成短期的不一致（TTL 缓解，或主动失效缓存）
 
-{% asset_img 20240717195648.png %}
+![20240717195648.png](/posts/redis-cache-penetration/20240717195648.png)
 
 ## 布隆过滤
 
-{% asset_img 20240717195802.png %}
+![20240717195802.png](/posts/redis-cache-penetration/20240717195802.png)
 
 优点：内存占用少，没有多余的 key
 

@@ -43,7 +43,7 @@ Java 作为一门纯面向对象的编程语言，对于面向对象有着深刻
 
 对应的 [UML 图](https://en.wikipedia.org/wiki/Unified_Modeling_Language)为：
 
-{% asset_img 16317985375578.jpg %}
+![16317985375578.jpg](/posts/java-oop/16317985375578.jpg)
 
 ## 初识面向对象
 
@@ -239,7 +239,7 @@ class Apple extends Fruit {
 - 声明时指定了初始值
 - 变量初始值可在编译时确定
 
-{% asset_img 16323961305864.jpg %}
+![16323961305864.jpg](/posts/java-oop/16323961305864.jpg)
 
 #### `final`修饰方法
 
@@ -595,7 +595,7 @@ public class PersonTest {
 
 **实例初始化块**实际上是「**假象**」，块中所有代码在**编译**时将会被**还原到每个构造器的最前面**。左图为编译前的原始代码，右图为`class`文件反编译的代码。
 
-{% asset_img 16322017907275.jpg %}
+![16322017907275.jpg](/posts/java-oop/16322017907275.jpg)
 
 **实例初始化块**的作用是**将各个构造器前相同的代码抽离到实例初始化块，从而实现代码复用**。
 

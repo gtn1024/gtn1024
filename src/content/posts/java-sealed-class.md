@@ -61,7 +61,7 @@ public non-sealed class C extends A { }
 
 对应的继承关系图如下：
 
-{% asset_img image-20221225180518140.png %}
+![image-20221225180518140.png](/posts/java-sealed-class/image-20221225180518140.png)
 
 特别地，如果密封类和子类均位于同一个文件中，`permits` 可以省略。
 

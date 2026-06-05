@@ -21,7 +21,7 @@ var score = 80;
 
 计算机会在内存中单独开辟一片空间来存放数据，并且告诉程序相应的内存地址。如图所示，该变量的内存地址是`0x00000005`。
 
-{% asset_img 变量内存.png %}
+![变量内存.png](/posts/data-structure-array-linkedlist/变量内存.png)
 
 当我们需要存储多个相同类型的数据时，似乎使用变量就显得不太「靠谱」了
 
@@ -46,7 +46,7 @@ var score8 = 73;
 var scores = new int[]{80, 90, 59, 66, 11, 99, 55, 73};
 ```
 
-{% asset_img 数组内存.png %}
+![数组内存.png](/posts/data-structure-array-linkedlist/数组内存.png)
 
 如图所示，计算机为学生成绩分别开辟了 8 份空间用来分别存放 8 位学生的考试成绩。然而这里又出现了一个问题，如果想要添加第 9 位学生成绩时会怎么样？
 
@@ -56,7 +56,7 @@ var scores = new int[]{80, 90, 59, 66, 11, 99, 55, 73};
 
 在数组中，针对一个元素的位置有一个专业术语称为**索引**（又称**下标**）。我们通常通过**索引**（**下标**）来获取、修改数组元素
 
-{% asset_img 数组索引.png %}
+![数组索引.png](/posts/data-structure-array-linkedlist/数组索引.png)
 
 数组的**索引**由 0 开始，最大值为`数组元素总数 - 1`。
 
@@ -84,13 +84,13 @@ scores[4] = 81;
 
 如果需要在数组之间的某个位置插入一个元素，则需要将其后面的元素整体向后挪一位。当数组空间不足时，你需要重新创建一个空间来存放新的数组。
 
-{% asset_img 数组元素插入.png %}
+![数组元素插入.png](/posts/data-structure-array-linkedlist/数组元素插入.png)
 
 #### 数组元素的删除
 
 数组中一个元素删除时，通常使得其右边的元素向左挪一位。
 
-{% asset_img 数组元素删除.png %}
+![数组元素删除.png](/posts/data-structure-array-linkedlist/数组元素删除.png)
 
 ## 链表
 
@@ -98,7 +98,7 @@ scores[4] = 81;
 
 依然以上面的学生成绩为例，其在内存中如图所示。
 
-{% asset_img 链表内存.png %}
+![链表内存.png](/posts/data-structure-array-linkedlist/链表内存.png)
 
 一个简易链表的实现如下：
 
@@ -120,7 +120,7 @@ class Node {
 }
 ```
 
-{% asset_img 一个链表节点.png %}
+![一个链表节点.png](/posts/data-structure-array-linkedlist/一个链表节点.png)
 
 #### 链表元素数据的获取
 

@@ -59,7 +59,7 @@ func main() {
 
 在项目目录中执行 `go run .` 即可运行该程序。
 
-{% asset_img 20230115165947.png %}
+![20230115165947.png](/posts/go-intro-and-install/20230115165947.png)
 
 在如上代码中，将包名设置为 `main`，代表该文件是一个程序的入口文件。Go 语言的程序由 `main` 包中的 `main()` 函数启动。`import "fmt"` 则代表需要导入 `fmt` 包，该包主要用于程序的字符串和输入输出。`fmt.Println("Hello, world!")` 则代表输出 `Hello, world!` 语句。
 
@@ -69,14 +69,14 @@ func main() {
 
 运行 `go build .` 即可将当前项目编译成当前平台的可执行文件，该文件可以独立执行而无需任何的依赖。
 
-{% asset_img 20230115170829.png %}
+![20230115170829.png](/posts/go-intro-and-install/20230115170829.png)
 
 ### 交叉编译其他平台程序
 
 Go 编译程序可以通过环境变量的方式来切换目标平台。本文使用的是 `Git Bash`，所以可以直接在命令前面添加环境变量。
 
-{% asset_img 20230115172126.png %}
+![20230115172126.png](/posts/go-intro-and-install/20230115172126.png)
 
 Go 语言可交叉编译的平台可以由 `go tool dist list` 命令查看：
 
-{% asset_img 20230115171820.png %}
+![20230115171820.png](/posts/go-intro-and-install/20230115171820.png)

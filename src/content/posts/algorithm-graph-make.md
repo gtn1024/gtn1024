@@ -122,7 +122,7 @@ int main() {
 
 其实现后效果可以如下图所示：
 
-{% asset_img 20230719225543.png %}
+![20230719225543.png](/posts/algorithm-graph-make/20230719225543.png)
 
 使用 STL 中的 `vector` 容器实现代码如下：
 
@@ -163,7 +163,7 @@ int main() {
 
 依然使用上面邻接表的例子。使用链式前向星，其空间存储如下图所示：
 
-{% asset_img 20230719233809.png %}
+![20230719233809.png](/posts/algorithm-graph-make/20230719233809.png)
 
 ```cpp
 const int N = 1e5 + 10; // 最多有 100,000 条边

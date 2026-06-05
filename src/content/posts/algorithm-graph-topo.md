@@ -12,19 +12,19 @@ tags:
 
 
 
-{% asset_img topo.drawio.png %}
+![topo.drawio.png](/posts/algorithm-graph-topo/topo.drawio.png)
 
 图中，“高等数学”、“线性代数”是“离散数学”的先修课程，“离散数学”、“高级语言程序设计”是“数据结构”的先修课程，“高级语言程序设计”是“面向对象程序设计”的先修课程，“数据结构”、“高级语言程序设计”是“算法分析与设计”的先修课程。而“大学生心理健康”、“劳动教育”则作为独立的课程存在，不作为先修课程。
 
 这张课程的关系图，我们可以将其课程名称由编号代替，进而形成一张图：
 
-{% asset_img topo-nodes.drawio.png %}
+![topo-nodes.drawio.png](/posts/algorithm-graph-topo/topo-nodes.drawio.png)
 
 该图其中一个拓扑序列为 `1 3 5 6 2 4 7 8 9`。（这里之所以说是其中的一个拓扑序列，是因为一张图可以有多个拓扑序列）
 
 继续使用课程举例，如果“课程1”依赖了“课程2”，“课程2”依赖了“课程3”，而“课程3”又依赖了课程“1”，那么无论如何我们都是无法学习的。
 
-{% asset_img circle.drawio.png %}
+![topo-circle.drawio.png](/posts/algorithm-graph-topo/topo-circle.drawio.png)
 
 这种现象按照图论的说法称为“回路”。一个图有拓扑排序的条件是不能构成回路。因此，拓扑排序同时可以判断是否存在环。
 

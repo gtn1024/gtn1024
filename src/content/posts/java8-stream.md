@@ -196,7 +196,7 @@ public class CollectionStream {
 
 事实上，从 Java 8 开始，JDK 提供了一个名为`Predicate`的**接口**，其作用与上方自己写的`Judge`接口类似。同时，因为它是**函数式接口**，我们可以很轻松地使用 Lambda 表达式。
 
-{% asset_img 16374142332314.jpg %}
+![16374142332314.jpg](/posts/java8-stream/16374142332314.jpg)
 
 ```java
 public class CollectionStream {
@@ -458,13 +458,13 @@ IDEA 中内置了一个名为**Java Stream Debugger**插件（如果没有请确
 2. 启动 Debug 模式；
 3. 断点暂停后，点击 Debug 面板上的**Trace Current Stream Chain**按钮（如图所示）
 
-   {% asset_img 16373728293511.jpg %}
+   ![16373728293511.jpg](/posts/java8-stream/16373728293511.jpg)
 
 该插件可以分步地将 Stream 操作以可视化的形式呈现出来（当然也可以通过下方的**Flat Mode**按钮在同一个窗口中看到所有操作）
 
-{% asset_img 16373728823304.jpg %}
+![16373728823304.jpg](/posts/java8-stream/16373728823304.jpg)
 
-{% asset_img 16373729705219.jpg %}
+![16373729705219.jpg](/posts/java8-stream/16373729705219.jpg)
 
 ### 演示 1 - filter
 
@@ -487,7 +487,7 @@ public class CollectionStream {
 }
 ```
 
-{% asset_img 16373731272913.jpg %}
+![16373731272913.jpg](/posts/java8-stream/16373731272913.jpg)
 
 ### 演示 2 - distinct
 
@@ -502,7 +502,7 @@ public class CollectionStream {
 }
 ```
 
-{% asset_img 16373734336456.jpg %}
+![16373734336456.jpg](/posts/java8-stream/16373734336456.jpg)
 
 ### 演示 3 - sorted
 
@@ -517,7 +517,7 @@ public class CollectionStream {
 }
 ```
 
-{% asset_img 16373736982517.jpg %}
+![16373736982517.jpg](/posts/java8-stream/16373736982517.jpg)
 
 ### 演示 4 - map
 
@@ -541,7 +541,7 @@ public class CollectionStream {
 }
 ```
 
-{% asset_img 16373757675756.jpg %}
+![16373757675756.jpg](/posts/java8-stream/16373757675756.jpg)
 
 ## 参考资料
 

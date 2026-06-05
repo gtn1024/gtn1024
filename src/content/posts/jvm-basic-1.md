@@ -29,13 +29,13 @@ JVM 全称是 Java Virtual Machine，中文名为 Java 虚拟机，是一个运�
 
 ### 即时编译
 
-{% asset_img 20241021213823.png %}
+![20241021213823.png](/posts/jvm-basic-1/20241021213823.png)
 
 JVM 提供了 即时编译（JIT）进行性能优化。最终能达到接近 C/C++ 语言的运行性能。在特定场景下甚至实现超越。
 
 ## JVM 的组成
 
-{% asset_img jvm-container.drawio.png %}
+![jvm-container.drawio.png](/posts/jvm-basic-1/jvm-container.drawio.png)
 
 ## 字节码文件的组成
 
@@ -51,8 +51,8 @@ JVM 提供了 即时编译（JIT）进行性能优化。最终能达到接近 C/
 
 **魔数**：4 字节，用于标识文件类型，固定值 `0xCAFEBABE`
 
-{% asset_img class-magic-num.png %}
+![class-magic-num.png](/posts/jvm-basic-1/class-magic-num.png)
 
 **主副版本号**：主副版本号是指编译字节码文件的 JDK 版本号。比如 JDK 1.8 编译的字节码文件，主版本号是 52，副版本号是 0；JDK 21 的主版本号是 65，副版本号是 0。一般只需要关心主版本号。在 JDK 1.2 之后大版本的计算方法是 `主版本号 - 44`。其主要作用是用来判断当前字节码的版本和运行时的 JDK 是否兼容。
 
-{% asset_img jclasslib.png %}
+![jclasslib.png](/posts/jvm-basic-1/jclasslib.png)

@@ -15,11 +15,11 @@ tags:
 
 **栈**(**Stack**)是一种线性的数据结构，栈中的元素遵循**先入后出**(**FILO**，First In Last Out)的原则。最早进入栈的元素位置称为**栈底**，最后进入站的元素位置成为**栈顶**。
 
-{% asset_img 栈2.png %}
+![栈2.png](/posts/data-structure-stack-queue/栈2.png)
 
 ### 操作栈
 
-{% asset_img 栈.png %}
+![栈.png](/posts/data-structure-stack-queue/栈.png)
 
 #### 入栈 (push)
 
@@ -168,7 +168,7 @@ public class MyLinkedStack {
 
 **队列**(**Queue**)也是一种线性数据结构，队列中的元素遵循**先入先出**(**FIFO**，First In First Out)的原则。队列的出口端称为**队头**，入口端称为**队尾**。
 
-{% asset_img 队列.png %}
+![队列.png](/posts/data-structure-stack-queue/队列.png)
 
 ### 操作队列
 
@@ -190,7 +190,7 @@ public class MyLinkedStack {
 
 当`(队尾下标 + 1) % 数组长度 = 队头下标`时，表明该队列已满。（可结合单步调试进行理解）
 
-{% asset_img 队列2.png %}
+![队列2.png](/posts/data-structure-stack-queue/队列2.png)
 
 ```java
 public class MyArrayQueue {

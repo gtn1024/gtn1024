@@ -19,7 +19,7 @@ JAX-RS 是 Jakarta RESTful Web Services 的缩写，是 Jakarta EE API 规范，
 
 为了便于演示，我们使用 Quarkus REST 来创建 JAX-RS 服务。
 
-{% asset_img quarkus-create.png %}
+![quarkus-create.png](/posts/jaxrs-101/quarkus-create.png)
 
 ## JAX-RS 常用注解
 
