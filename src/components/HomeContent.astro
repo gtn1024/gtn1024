@@ -10,8 +10,8 @@ const { lang } = Astro.props
 const t = useTranslations(lang)
 
 const interests = lang === 'en'
-  ? ['High-Performance Server Side', 'AI Education', 'Competitive Programming', 'Programming Languages']
-  : ['高性能服务端', 'AI 教育', '竞赛编程', '编程语言']
+  ? ['High-Performance Server Side', 'AI-Assisted Programming Education', 'Competitive Programming', 'Programming Languages']
+  : ['高性能服务端', 'AI 辅助编程教育', '竞赛编程', '编程语言']
 
 const skills = [
   { label: t('home.skills.lang'), items: ['Java', 'Kotlin', 'TypeScript', 'JavaScript', 'Cangjie'] },
