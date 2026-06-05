@@ -1,28 +1,42 @@
 ---
+import { useTranslations, getAlternateLanguageUrl, getLangFromUrl, type Lang } from '../i18n/utils'
+import { languages } from '../i18n/ui'
+
 export interface Props {
   title: string
   description?: string
+  lang?: Lang
 }
 
-  const { title, description = 'Taoning Ge - Personal Site & Blog' } = Astro.props
+const { title, description, lang } = Astro.props
+const currentLang = lang || getLangFromUrl(Astro.url)
+const t = useTranslations(currentLang)
+const desc = description || t('site.description')
 
 const currentPath = Astro.url.pathname
 
 function isActive(href: string) {
-  if (href === '/') return currentPath === '/'
+  if (href === '/') return currentPath === '/' || currentPath === '/zh/'
   return currentPath.startsWith(href)
 }
+
+const alternateUrl = getAlternateLanguageUrl(Astro.url)
+const alternateLang: Lang = currentLang === 'en' ? 'zh-CN' : 'en'
+const blogHref = '/zh/posts'
+const tagsHref = '/zh/tags'
 ---
 
 <!doctype html>
-<html lang="zh-CN">
+<html lang={currentLang === 'zh-CN' ? 'zh-CN' : 'en'}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="/favicon.ico" />
     <title>{title}</title>
-    <meta name="description" content={description} />
+    <meta name="description" content={desc} />
     <meta name="generator" content={Astro.generator} />
+    <link rel="alternate" hrefLang={currentLang} href={Astro.url.href} />
+    <link rel="alternate" hrefLang={alternateLang} href={new URL(alternateUrl, Astro.site).href} />
     <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/rss.xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -39,17 +53,29 @@ function isActive(href: string) {
     <header class="fade-in border-b border-stone-200/60 dark:border-stone-800/60">
       <nav class="mx-auto flex max-w-3xl items-center justify-between px-6 py-4">
         <a
-          href="/"
+          href={currentLang === 'en' ? '/' : '/zh/'}
           class="text-lg font-semibold tracking-tight text-stone-900 transition-colors hover:text-stone-600 dark:text-stone-100 dark:hover:text-stone-400"
         >
           Taoning Ge
         </a>
         <div class="flex items-center gap-5 text-sm font-medium">
-          <a href="/posts" class:list={['transition-colors hover:text-stone-900 dark:hover:text-stone-100', isActive('/posts') ? 'text-stone-900 dark:text-stone-100' : 'text-stone-500 dark:text-stone-400']}>
-            Posts
+          <a href={blogHref} class:list={['transition-colors hover:text-stone-900 dark:hover:text-stone-100', isActive('/zh/posts') ? 'text-stone-900 dark:text-stone-100' : 'text-stone-500 dark:text-stone-400']}>
+            {t('nav.blog')}
           </a>
-          <a href="/tags" class:list={['transition-colors hover:text-stone-900 dark:hover:text-stone-100', isActive('/tags') ? 'text-stone-900 dark:text-stone-100' : 'text-stone-500 dark:text-stone-400']}>
-            Tags
+          <a href={tagsHref} class:list={['transition-colors hover:text-stone-900 dark:hover:text-stone-100', isActive('/zh/tags') ? 'text-stone-900 dark:text-stone-100' : 'text-stone-500 dark:text-stone-400']}>
+            {t('nav.tags')}
+          </a>
+
+          <a
+            href={alternateUrl}
+            class="cursor-pointer text-stone-500 transition-colors hover:text-stone-900 dark:text-stone-400 dark:hover:text-stone-100"
+            title={languages[alternateLang]}
+          >
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
           </a>
 
           <button

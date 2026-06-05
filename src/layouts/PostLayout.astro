@@ -1,5 +1,7 @@
 ---
 import BaseLayout from './BaseLayout.astro'
+import type { Lang } from '../i18n/utils'
+import { formatDate } from '../i18n/utils'
 
 export interface Props {
   title: string
@@ -7,25 +9,20 @@ export interface Props {
   updated?: Date
   tags?: string[]
   categories?: string[]
+  lang?: Lang
 }
 
-const { title, date, updated, tags = [], categories = [] } = Astro.props
-
-function formatDate(d: Date) {
-  return d.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' })
-}
-
-const readingTime = Math.ceil(Astro.slots.has('default') ? 1 : 1)
+const { title, date, updated, tags = [], categories = [], lang = 'zh-CN' } = Astro.props
 ---
 
-<BaseLayout title={`${title} - Taoning Ge`}>
+<BaseLayout title={`${title} - Taoning Ge`} lang={lang}>
   <article class="mx-auto max-w-3xl px-6 py-10">
     <header class="fade-in-up mb-10">
       <div class="mb-3 flex flex-wrap items-center gap-2 text-xs text-stone-500 dark:text-stone-400">
-        <time datetime={date.toISOString()}>{formatDate(date)}</time>
+        <time datetime={date.toISOString()}>{formatDate(date, lang)}</time>
         {updated && (
           <span>
-            (updated <time datetime={updated.toISOString()}>{formatDate(updated)}</time>)
+            (updated <time datetime={updated.toISOString()}>{formatDate(updated, lang)}</time>)
           </span>
         )}
         {categories.length > 0 && (
@@ -42,7 +39,7 @@ const readingTime = Math.ceil(Astro.slots.has('default') ? 1 : 1)
         <div class="mt-4 flex flex-wrap gap-2">
           {tags.map((tag) => (
             <a
-              href={`/tags/${encodeURIComponent(tag)}`}
+              href={`/zh/tags/${encodeURIComponent(tag)}`}
               class="rounded-full border border-stone-200 px-3 py-0.5 text-xs text-stone-600 transition-colors hover:border-stone-400 hover:text-stone-900 dark:border-stone-800 dark:text-stone-400 dark:hover:border-stone-600 dark:hover:text-stone-100"
             >
               #{tag}

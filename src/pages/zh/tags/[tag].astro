@@ -1,7 +1,8 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro'
-import PostCard from '../../components/PostCard.astro'
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+import PostCard from '../../../components/PostCard.astro'
 import { getCollection } from 'astro:content'
+import { useTranslations } from '../../../i18n/utils'
 
 export async function getStaticPaths() {
   const allPosts = await getCollection('posts', ({ data }) => !data.draft)
@@ -18,12 +19,14 @@ export async function getStaticPaths() {
 }
 
 const { tag, posts } = Astro.props
+const lang = 'zh-CN'
+const t = useTranslations(lang)
 ---
 
-<BaseLayout title={`#${tag}`}>
+<BaseLayout title={`#${tag}`} lang={lang}>
   <div class="mx-auto max-w-3xl px-6 py-10">
-    <a href="/tags" class="mb-4 inline-block text-xs text-stone-400 transition-colors hover:text-stone-600 dark:hover:text-stone-300">
-      &larr; All Tags
+    <a href="/zh/tags" class="mb-4 inline-block text-xs text-stone-400 transition-colors hover:text-stone-600 dark:hover:text-stone-300">
+      {t('tags.all')}
     </a>
     <h1 class="fade-in-up mb-8 text-2xl font-bold tracking-tight text-stone-900 dark:text-stone-100">
       #{tag}
@@ -32,10 +35,11 @@ const { tag, posts } = Astro.props
       {posts.map((post) => (
         <PostCard
           title={post.data.title}
-          href={`/posts/${post.id.replace(/\.md$/, '')}`}
+          href={`/zh/posts/${post.id.replace(/\.md$/, '')}`}
           date={post.data.date}
           tags={post.data.tags}
           excerpt={post.data.excerpt}
+          lang={lang}
         />
       ))}
     </div>

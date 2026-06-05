@@ -13,7 +13,7 @@ export async function GET(context) {
       title: post.data.title,
       pubDate: post.data.date,
       description: post.data.excerpt || '',
-      link: `/posts/${post.id.replace(/\.md$/, '')}`,
+      link: `/zh/posts/${post.id.replace(/\.md$/, '')}`,
       categories: post.data.tags,
     })),
     customData: '<language>zh-CN</language>',

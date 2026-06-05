@@ -1,17 +1,17 @@
 ---
+import type { Lang } from '../i18n/utils'
+import { formatDateShort } from '../i18n/utils'
+
 export interface Props {
   title: string
   href: string
   date: Date
   tags?: string[]
   excerpt?: string
+  lang?: Lang
 }
 
-const { title, href, date, tags = [], excerpt } = Astro.props
-
-function formatDate(d: Date) {
-  return d.toLocaleDateString('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit' })
-}
+const { title, href, date, tags = [], excerpt, lang = 'zh-CN' } = Astro.props
 ---
 
 <a
@@ -19,7 +19,7 @@ function formatDate(d: Date) {
   class="group block rounded-lg border border-stone-200/80 p-5 transition-all hover:border-stone-300 hover:shadow-sm dark:border-stone-800/80 dark:hover:border-stone-700"
 >
   <div class="mb-2 flex items-center gap-3 text-xs text-stone-500 dark:text-stone-400">
-    <time datetime={date.toISOString()}>{formatDate(date)}</time>
+    <time datetime={date.toISOString()}>{formatDateShort(date, lang)}</time>
     {tags.slice(0, 2).map((tag) => (
       <span class="text-stone-400 dark:text-stone-600">#{tag}</span>
     ))}

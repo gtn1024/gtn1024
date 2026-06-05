@@ -7,9 +7,24 @@ import rehypeKatex from 'rehype-katex'
 
 export default defineConfig({
   site: 'https://gtn1024.me',
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'zh-CN'],
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
   integrations: [
     tailwind(),
-    sitemap(),
+    sitemap({
+      i18n: {
+        defaultLocale: 'en',
+        locales: {
+          en: 'en',
+          'zh-CN': 'zh-CN',
+        },
+      },
+    }),
   ],
   markdown: {
     unified: unified().use(remarkMath).use(rehypeKatex),

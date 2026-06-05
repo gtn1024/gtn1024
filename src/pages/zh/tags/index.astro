@@ -1,6 +1,10 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro'
+import BaseLayout from '../../../layouts/BaseLayout.astro'
 import { getCollection } from 'astro:content'
+import { useTranslations } from '../../../i18n/utils'
+
+const lang = 'zh-CN'
+const t = useTranslations(lang)
 
 const allPosts = await getCollection('posts', ({ data }) => !data.draft)
 
@@ -14,15 +18,15 @@ allPosts.forEach((post) => {
 const tags = Object.entries(tagMap).sort((a, b) => b[1] - a[1])
 ---
 
-<BaseLayout title="Tags">
+<BaseLayout title={t('tags.title')} lang={lang}>
   <div class="mx-auto max-w-3xl px-6 py-10">
     <h1 class="fade-in-up mb-8 text-2xl font-bold tracking-tight text-stone-900 dark:text-stone-100">
-      Tags
+      {t('tags.title')}
     </h1>
     <div class="fade-in-up flex flex-wrap gap-3" style="animation-delay: 100ms">
       {tags.map(([tag, count]) => (
         <a
-          href={`/tags/${encodeURIComponent(tag)}`}
+          href={`/zh/tags/${encodeURIComponent(tag)}`}
           class="inline-flex items-center gap-1.5 rounded-full border border-stone-200 px-4 py-2 text-sm font-medium text-stone-600 transition-colors hover:border-stone-400 hover:text-stone-900 dark:border-stone-800 dark:text-stone-400 dark:hover:border-stone-600 dark:hover:text-stone-100"
         >
           #{tag}
