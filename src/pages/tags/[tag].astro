@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import PostCard from '../../components/PostCard.astro'
+import { getCollection } from 'astro:content'
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection('posts', ({ data }) => !data.draft)
+  const tags = [...new Set(allPosts.flatMap((post) => post.data.tags))]
+  return tags.map((tag) => ({
+    params: { tag },
+    props: {
+      tag,
+      posts: allPosts
+        .filter((post) => post.data.tags.includes(tag))
+        .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()),
+    },
+  }))
+}
+
+const { tag, posts } = Astro.props
+---
+
+<BaseLayout title={`#${tag}`}>
+  <div class="mx-auto max-w-3xl px-6 py-10">
+    <a href="/tags" class="mb-4 inline-block text-xs text-stone-400 transition-colors hover:text-stone-600 dark:hover:text-stone-300">
+      &larr; All Tags
+    </a>
+    <h1 class="fade-in-up mb-8 text-2xl font-bold tracking-tight text-stone-900 dark:text-stone-100">
+      #{tag}
+    </h1>
+    <div class="grid gap-3">
+      {posts.map((post) => (
+        <PostCard
+          title={post.data.title}
+          href={`/posts/${post.id.replace(/\.md$/, '')}`}
+          date={post.data.date}
+          tags={post.data.tags}
+          excerpt={post.data.excerpt}
+        />
+      ))}
+    </div>
+  </div>
+</BaseLayout>

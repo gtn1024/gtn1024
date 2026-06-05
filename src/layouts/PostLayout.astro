@@ -1,0 +1,59 @@
+---
+import BaseLayout from './BaseLayout.astro'
+
+export interface Props {
+  title: string
+  date: Date
+  updated?: Date
+  tags?: string[]
+  categories?: string[]
+}
+
+const { title, date, updated, tags = [], categories = [] } = Astro.props
+
+function formatDate(d: Date) {
+  return d.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' })
+}
+
+const readingTime = Math.ceil(Astro.slots.has('default') ? 1 : 1)
+---
+
+<BaseLayout title={`${title} - Taoning Ge`}>
+  <article class="mx-auto max-w-3xl px-6 py-10">
+    <header class="fade-in-up mb-10">
+      <div class="mb-3 flex flex-wrap items-center gap-2 text-xs text-stone-500 dark:text-stone-400">
+        <time datetime={date.toISOString()}>{formatDate(date)}</time>
+        {updated && (
+          <span>
+            (updated <time datetime={updated.toISOString()}>{formatDate(updated)}</time>)
+          </span>
+        )}
+        {categories.length > 0 && (
+          <span class="text-stone-300 dark:text-stone-700">/</span>
+        )}
+        {categories.map((c) => (
+          <span class="rounded bg-stone-100 px-1.5 py-0.5 dark:bg-stone-800">{c}</span>
+        ))}
+      </div>
+      <h1 class="text-3xl font-bold tracking-tight text-stone-900 dark:text-stone-100 md:text-4xl">
+        {title}
+      </h1>
+      {tags.length > 0 && (
+        <div class="mt-4 flex flex-wrap gap-2">
+          {tags.map((tag) => (
+            <a
+              href={`/tags/${encodeURIComponent(tag)}`}
+              class="rounded-full border border-stone-200 px-3 py-0.5 text-xs text-stone-600 transition-colors hover:border-stone-400 hover:text-stone-900 dark:border-stone-800 dark:text-stone-400 dark:hover:border-stone-600 dark:hover:text-stone-100"
+            >
+              #{tag}
+            </a>
+          ))}
+        </div>
+      )}
+    </header>
+
+    <div class="fade-in-up prose prose-stone max-w-none dark:prose-invert prose-headings:scroll-mt-20 prose-a:no-underline hover:prose-a:text-accent-700 prose-code:before:content-none prose-code:after:content-none" style="animation-delay: 100ms">
+      <slot />
+    </div>
+  </article>
+</BaseLayout>
