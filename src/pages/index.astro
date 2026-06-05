@@ -6,12 +6,17 @@ import { getCollection } from 'astro:content'
 const allPosts = (await getCollection('posts', ({ data }) => !data.draft))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
 
+const skills = [
+  { label: '编程语言', items: ['Java', 'Kotlin', 'TypeScript', 'JavaScript', '仓颉'] },
+  { label: '框架', items: ['Spring Boot', 'React', 'Vue', 'Node.js'] },
+]
+
 const recentPosts = allPosts.slice(0, 6)
 ---
 
 <BaseLayout title="Taoning Ge">
   <div class="flex min-h-[calc(100vh-10rem)] items-center justify-center px-6">
-    <div class="w-full max-w-xl">
+    <div class="w-full max-w-xl space-y-8">
       <header class="fade-in-up flex items-center gap-5" style="animation-delay: 80ms">
         <img
           src="https://github.com/gtn1024.png"
@@ -25,11 +30,28 @@ const recentPosts = allPosts.slice(0, 6)
           <p class="mt-1 text-stone-500 dark:text-stone-400" id="tagline"></p>
         </div>
       </header>
+      <div class="fade-in-up space-y-4 text-stone-600 dark:text-stone-400" style="animation-delay: 180ms">
+        <p>
+          Hi, I'm Taoning Ge, a software developer and open-source enthusiast.
+        </p>
+        {skills.map(({ label, items }) => (
+          <div>
+            <h2 class="mb-1 text-sm font-semibold uppercase tracking-wider text-stone-900 dark:text-stone-100">{label}</h2>
+            <div class="flex flex-wrap gap-2 pt-2">
+              {items.map((item) => (
+                <span class="rounded-md bg-stone-100/80 px-3 py-1 text-sm text-stone-800 dark:bg-stone-700/50 dark:text-stone-200">
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   </div>
 
   <script is:inline>
-    const phrases = ['Open Source Enthusiast', 'Software Developer', 'Java / Kotlin / TypeScript']
+    const phrases = ['Open Source Enthusiast', 'Software Developer']
     const el = document.getElementById('tagline')
     let phraseIdx = 0, charIdx = 0, deleting = false
     function type() {
