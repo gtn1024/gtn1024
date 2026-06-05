@@ -51,7 +51,7 @@ Java 中的多线程有如下特点：
 1. 继承`Thread`类，重写`run()`方法。
 2. 创建实例，并调用`start()`方法来启动线程。（**注意不要调用`run()`方法！**）
 
-```Java
+```java
 class MyThread extends Thread {
   @Override
   public void run() {
@@ -87,7 +87,7 @@ public class ThreadTest {
 2. 创建实例。
 3. 以第二步的实例为 target，创建`Thread`对象，调用`start()`方法启动线程。
 
-```Java
+```java
 class MyThread implements Runnable {
   @Override
   public void run() {
@@ -114,7 +114,7 @@ public class ThreadTest {
 
 当然，因为`Runnable`接口是一个函数式接口，我们也可以直接使用[匿名内部类](/archives/java-oop#匿名内部类)、[Lambda 表达式](/archives/java-functional-program)创建线程，效果依然与方法一一致。这里以 Lambda 表达式为例：
 
-```Java
+```java
 public class ThreadTest {
   public static void main(String[] args) {
     new Thread(() -> {
@@ -150,7 +150,7 @@ public class ThreadTest {
 
 另外，可以使用`FutureTask`实例的`get()`方法来获取
 
-```Java
+```java
 import java.util.concurrent.Callable;
 import java.util.concurrent.FutureTask;
 
@@ -222,7 +222,7 @@ public class ThreadTest {
 
 当一条线程执行到某个点，必须等待另外一个线程完成后才能继续向下执行时，应使用`join`来等待线程执行。
 
-```Java
+```java
 public class JoinThreadTest {
   public static void main(String[] args) throws Exception {
     final var t = new Thread(() -> {
@@ -272,7 +272,7 @@ main ---> 99
 
 `Thread.sleep(long)`在哪个线程中执行，就让哪个线程暂停。
 
-```Java
+```java
 public class SleepThreadTest {
   public static void main(String[] args) throws Exception {
     for (int i = 0; i < 100; i++) {

@@ -440,7 +440,7 @@ IntStream.concat(foo, bar)
 - `findFirst`/`findAny`：返回流中**第一个**/**任意一个**元素。
 - 🌟`collect`：**几乎**可以将一个`Stream`对象转换为任何内容，例如以下代码可以将姓王的用户筛选出来，并转换为 List 集合。
 
-    ```Java
+    ```java
     final var ls = users.stream()
          .filter(it -> it.name().startsWith("王"))
          .collect(Collectors.toList());
