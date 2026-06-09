@@ -45,6 +45,3 @@
     transform: translateY(0);
   }
 }
-
-/* KaTeX */
-@import "https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css";
