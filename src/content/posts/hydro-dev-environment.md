@@ -35,6 +35,7 @@ $ yarn global remove hydrooj # 注意不要在 Hydro 的目录里面
 $ git clone https://github.com/hydro-dev/Hydro.git --recurse-submodules
 $ cd Hydro
 $ yarn
+$ node build/prepare.js # 生成各个模块的 tsconfig.json，方便 IDE 识别
 ```
 
 推荐使用 VSCode SSH 进容器进行开发。
