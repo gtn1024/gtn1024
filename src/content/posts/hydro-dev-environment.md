@@ -26,6 +26,7 @@ $ LANG=zh . <(curl https://hydro.ac/setup.sh)
 ```sh
 $ pm2 del hydrooj caddy
 $ pm2 save
+$ yarn global remove hydrooj # 注意不要在 Hydro 的目录里面
 ```
 
 ## 拉取源码
