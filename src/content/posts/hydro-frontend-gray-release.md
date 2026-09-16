@@ -1,5 +1,5 @@
 ---
-title: HydroOJ SPA 化前端的灰度发布
+title: HydroOJ SPA 化前端的灰度发布实践
 date: 2026-09-16 16:40:44
 categories:
 - 二次开发
