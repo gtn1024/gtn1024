@@ -51,10 +51,10 @@ ctx.server.registerRenderer('ui-custom', {
     accept: ACCEPT_TEMPLATES,
     priority: 50,
     asFallback: false,
-    render: async (_name, args, context) => {
-        if (!allowed(context.handler.user, _name)) {
+    render: async (name, args, context) => {
+        if (!allowed(context.handler.user, name)) {
             // 等价于本插件未注册：ui-default 本来就是 asFallback 兜底
-            return ctx.server.renderers['ui-default'].render(_name, args, context);
+            return ctx.server.renderers['ui-default'].render(name, args, context);
         }
         // ↓ 原有 SPA 渲染逻辑，不动
         ...
