@@ -7,10 +7,12 @@ tags:
 - HydroOJ
 - 前端
 - 灰度发布
-excerpt: Hydro 的 renderer 选择是进程级全局决策，装上新 UI 插件后所有用户会立刻切换。但 renderHTML 把完整的 handler 传进了 render 函数——分流的正确位置就在自己插件里。
+excerpt: Hydro 官方新前端 ui-next 是 SSR 外壳 + 客户端路由的 SPA，renderer 的选择是进程级全局决策，启用即全量切换。但 renderHTML 把完整的 handler 传进了 render 函数——分流的正确位置就在自己插件里，细到每个模板一个灰度值。
 ---
 
-在 HydroOJ 上做二次开发时，我们用自研 SPA（`ui-nytdacm`）渐进式替换 stock 前端（`ui-default`）：插件通过 `registerRenderer` 按模板白名单接管页面。这套机制上线即全量——插件一装，所有用户立刻看到新界面。如果想要"一部分人先用新 UI，其他人继续用 stock"，stock 里并没有现成的开关。
+Hydro 官方的新一代前端 `ui-next` 是一个 React SPA：通过 `registerRenderer` 以最高优先级（100）兜底全部页面，首屏由服务端渲染外壳并注入序列化数据，之后的站内跳转全部由客户端路由接管。我们参照这套机制实现了自己的 SPA 前端（下文称 `ui-custom`），以模板白名单的方式渐进式替换 stock 前端（`ui-default`）。
+
+这类 SPA 化改造带出一个发布问题：renderer 的选择是进程级全局决策——插件一启用，所有用户立刻切换到新界面（`ui-next` 更是启用即全站接管）。如果想要"一部分人先用新 UI，其他人继续用 stock"，stock 里并没有现成的开关。
 
 读完渲染管线的源码后会发现：Hydro 确实没有按人灰度的机制，但架构留了口子，在自己插件里加十几行就能做，而且能细到"每个模板一个独立灰度值"。
 
@@ -33,7 +35,7 @@ renderHTML(templateName: string, args: Record<string, any>) {
 }
 ```
 
-进程里有两个 renderer：`ui-default` 注册为 `asFallback: true, priority: 1` 兜底所有模板；`ui-nytdacm` 注册为 `priority: 50`，只 `accept` 自己接管的模板白名单。
+进程里有两个 renderer：`ui-default` 注册为 `asFallback: true, priority: 1` 兜底所有模板；`ui-custom` 注册为 `priority: 50`，只 `accept` 自己接管的模板白名单。
 
 关键观察有两点：
 
@@ -45,7 +47,7 @@ renderHTML(templateName: string, args: Record<string, any>) {
 ## 分流：一处分支 + 委托兜底
 
 ```ts
-ctx.server.registerRenderer('ui-nytdacm', {
+ctx.server.registerRenderer('ui-custom', {
     accept: ACCEPT_TEMPLATES,
     priority: 50,
     asFallback: false,
@@ -96,11 +98,12 @@ function inBucket(uid: number, percent: number): boolean {
 
 维度还可以继续加：uid 白名单（内部人员全量）、用户组、`handler.domain`（按域灰度——多域部署下每个域就是天然的试点单位）。都是在规则匹配函数里多写一行的量级。
 
-## SPA 特有的坑：客户端会绕过你的灰度
+## SPA 架构的共性：客户端会绕过你的灰度
 
-服务端分流对传统多页应用是完备的——每个页面都是整页加载，每次都重新过一遍 `renderHTML`。但自研 SPA 是客户端路由：在 SPA 页面里点击链接不再发生整页加载，由前端 router 决定"这个 URL 归不归我管"。
+有一个容易产生的误解："ui-next 每个请求都由服务端重新渲染，renderer 级灰度对它天然有效。"这只对**硬加载**成立——首屏确实每次都过一遍 `renderHTML`，但 SPA 的站内跳转根本不走到这一步。这个坑是"SSR 外壳 + 客户端路由"架构的共性，ui-next 也一样有，甚至更彻底：
 
-而 ui-nytdacm 里这个判定目前是纯 URL 形状匹配：
+- **ui-next**：`accept: []` + `asFallback: true` 兜底所有页面；客户端 `Link` 组件对站内链接一律 `preventDefault()`，`fetchPage`（`x-hydro-inject` 内容协商）取回数据后 `history.pushState` 软导航。用户一旦拿到 ui-next 外壳，后续所有导航都发生在客户端，renderer 级灰度对这些请求完全不可见。
+- **ui-custom**：按模板白名单接管，白名单外的页面整页加载落回 stock。绕过风险集中在一点——在 SPA 页面里点击"归 stock 管"的链接时，客户端的拦截判定是纯 URL 形状匹配，不认人：
 
 ```ts
 // src/layout.tsx
@@ -126,7 +129,7 @@ function isSpaNavTarget(url?: string): url is string {
 2. **SPA 的 `handler/after` 钩子对 stock 页无副作用**。它注入的 `contentHtml`、分类数据等只是往响应里多塞字段，stock 模板不读；注入的顶栏导航数据 stock 模板根本不消费。
 3. **静态资源各走各的**：stock 页引 `ui-default` 的 bundle，SPA 页引自己的，缓存互不影响。
 
-另一个佐证：Hydro 官方的 `ui-next`（React 版新前端）也是用同一个 `registerRenderer` 与 `ui-default` 共存的。多 UI 共存本来就是这套设计支持的形态，缺的只是 per-request 分支这一步。
+另一个佐证：官方的 `ui-next` 与 `ui-default` 也是靠同一套机制共存的——`asFallback: true, priority: 100` 压过 `ui-default` 的 1，启用即全站接管。多 UI 共存本来就是这套设计支持的形态，缺的只是 per-request 分支这一步。
 
 ## 另一条路：部署级灰度
 
@@ -138,7 +141,7 @@ function isSpaNavTarget(url?: string): url is string {
 
 - Hydro 的 renderer 选择是进程级全局决策，这是"没法灰度"错觉的来源；但 `render` 收到完整 handler，**分流点就在自己插件的 render 函数里**。
 - 规则表用 **模板名 × 灰度百分比**，模板名归一了域名前缀差异；共用 uid 哈希空间保证放量单调（只进不退）；`percent: 0` 即回滚。
-- 纯用户灰度客户端零改动；**每模板独立灰度必须让客户端的接管判定与服务端规则同源**（生效接管集随 seed 下发），否则 SPA 内导航会绕过灰度。
+- 纯用户灰度客户端零改动；**每模板独立灰度必须让客户端的接管判定与服务端规则同源**（生效接管集随 seed 下发），否则 SPA 内导航会绕过灰度。这对 ui-next 同样成立——客户端绕过是"SSR 外壳 + 客户端路由"架构的共性，不是自研 SPA 的特例。
 - 部署级双实例分流是零代码替代方案，粒度粗但运维简单。
 
 对二次开发来说，这类改动的共同特点是：不 fork 框架、不改核心包，全部收在自己的插件模块里。框架给出的扩展点（`registerRenderer`、`addCaptureRoute`、事件钩子）加上一点对渲染管线的理解，足够把发布流程做出大厂灰度系统的核心语义。
